@@ -1,7 +1,7 @@
 import {useContext} from 'react';
 import { Appcontext } from '../../../../context';
 
-export const UserPersona)=>{
+export const UserPersonalInfo=()=>{
     const {name,age} = useContext (Appcontext);
     return (
         <div>
