@@ -1,23 +1,26 @@
-import {Header,UserBlock} from './components'
-import styles from './App.css';
+import { Header, UserBlock } from "./components";
+import styles from "./App.css";
+import { Appcontext } from "./context";
 
 const getUserFromServer = () => ({
-  id: 'a1110',
-  name: 'Bakhyt',
+  id: "a1110",
+  name: "Bakhyt",
   age: 28,
-  email: 'bahytsembaev@gmail.com',
-  phone: '+7-777-097-79-63',
-
+  email: "bahytsembaev@gmail.com",
+  phone: "+7-777-097-79-63",
 });
 
-export const App = ()=>{
-  const {name, age, email, phone} = getUserFromServer();
+export const App = () => {
+  const userData = getUserFromServer();
+
   return (
-    <div className={styles.app}>
-      <Header currentUser ={name} />
-      <hr/>
-      <UserBlock name={name} age={age} email={email} phone={phone}/>
-    </div>
+    <Appcontext.Provider value ={userData}>
+      <div className={styles.app}>
+        <Header />
+        <hr />
+        <UserBlock />
+      </div>
+    </Appcontext.Provider>
   );
 };
 
